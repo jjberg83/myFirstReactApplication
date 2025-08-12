@@ -19,7 +19,11 @@ function App() {
   // En bedre løsning er å bruke Fragments. Man kan ha import linjen over og skrive alt inni opening og
   // closing brackets, men det er enda kortere å gjøre slik jeg gjorde under. De "tomme" bracketene er fragments
   // og skaper altså ikke nye elementer i DOM'en.
-  return <ListGroup />;
+  return (
+    <>
+      <ListGroup />;
+    </>
+  );
 }
 
 export default App;
