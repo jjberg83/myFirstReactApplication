@@ -13,7 +13,15 @@ function ListGroup() {
   //       <p>No items found</p>
   //     </>
   //   );
-  const message = cities.length === 0 ? <p>No items found</p> : null;
+
+  // Vi kan bruke en constant slik hvis vi ikke tror vi trenger parametere 
+  // const message = cities.length === 0 ? <p>No items found</p> : null;
+
+  // Hvis vi derimot trenger parametere, er det bedre å bruke en funksjon 
+  // (men her legger vi ikke inn parametere, ironisk nok. Men vi kan.)
+  const getMessage = () => cities.length === 0 ? <p> Ingen elementer funnet </p> : null;
+
+
 
   /*
     Wrap hele mapping funksjonaliteten inni {}
@@ -23,7 +31,17 @@ function ListGroup() {
   return (
     <>
       <h1>ListGroup</h1>
-      {message}
+      {/*Hvis jeg ikke trenger parametere */}
+      {/* {message} */}
+      {/* Hvis jeg tror jeg kan trenge parametere i fremtiden, bruk en funksjon heller */}
+      {/* {getMessage()} */}
+      {/* Under ser du samme kode på en JavaScript teknikk React utviklere liker å bruke 
+      For å forstå den, prøv følgende i Console i nettleser:
+      true && 1
+      true && "jørund er best"
+      false && 1
+      false && "jørund er verst*/}
+      { cities.length === 0 && <p>Hei, liten beskjed her. Listen er tom!</p>}
       <ul className="list-group">
         {cities.map((city) => (
           <li key={city}>{city}</li>
