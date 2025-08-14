@@ -1,6 +1,6 @@
 function ListGroup() {
   let cities = ["London", "Berlin", "Paris", "Melbourne", "Buenos Aires"];
-  cities = [];
+  // cities = [];
 
   // Her dupliserer vi mye kode, fordi vi må skrive inn h1 taggen på nytt
   // Har brukt ternary operator i stedet
@@ -14,14 +14,13 @@ function ListGroup() {
   //     </>
   //   );
 
-  // Vi kan bruke en constant slik hvis vi ikke tror vi trenger parametere 
+  // Vi kan bruke en constant slik hvis vi ikke tror vi trenger parametere
   // const message = cities.length === 0 ? <p>No items found</p> : null;
 
-  // Hvis vi derimot trenger parametere, er det bedre å bruke en funksjon 
+  // Hvis vi derimot trenger parametere, er det bedre å bruke en funksjon
   // (men her legger vi ikke inn parametere, ironisk nok. Men vi kan.)
-  const getMessage = () => cities.length === 0 ? <p> Ingen elementer funnet </p> : null;
-
-
+  const getMessage = () =>
+    cities.length === 0 ? <p> Ingen elementer funnet </p> : null;
 
   /*
     Wrap hele mapping funksjonaliteten inni {}
@@ -41,10 +40,20 @@ function ListGroup() {
       true && "jørund er best"
       false && 1
       false && "jørund er verst*/}
-      { cities.length === 0 && <p>Hei, liten beskjed her. Listen er tom!</p>}
+      {cities.length === 0 && <p>Hei, liten beskjed her. Listen er tom!</p>}
       <ul className="list-group">
-        {cities.map((city) => (
-          <li key={city}>{city}</li>
+        {cities.map((city, index) => (
+          <li
+            className="list-group-item"
+            key={city}
+            onClick={() =>
+              console.log(
+                "City number " + index + ": " + city + ", har blitt trykket på"
+              )
+            }
+          >
+            {city}
+          </li>
         ))}
       </ul>
     </>

@@ -21,7 +21,7 @@ function App() {
   // og skaper altså ikke nye elementer i DOM'en.
   return (
     <>
-      <ListGroup />;
+      <ListGroup />
     </>
   );
 }
