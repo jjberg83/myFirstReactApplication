@@ -1,3 +1,5 @@
+import { MouseEvent } from "react";
+
 function ListGroup() {
   let cities = ["London", "Berlin", "Paris", "Melbourne", "Buenos Aires"];
   // cities = [];
@@ -21,6 +23,16 @@ function ListGroup() {
   // (men her legger vi ikke inn parametere, ironisk nok. Men vi kan.)
   const getMessage = () =>
     cities.length === 0 ? <p> Ingen elementer funnet </p> : null;
+
+  // Dette er en metode, en såkalt Event Handler
+  // Vi bruker type annotation for å si at argumentet er av typen MouseEvent
+  // Det er jo det som gjør TypeScript så bra, at man har datatype krav til argumenter
+  const handleClick = (event: MouseEvent) => console.log(event);
+
+  // Det samme som over, men jeg skrev metoden med tradisjonell syntaks
+  // function handleClick(event: MouseEvent) {
+  //   console.log(event);
+  // }
 
   /*
     Wrap hele mapping funksjonaliteten inni {}
@@ -46,10 +58,22 @@ function ListGroup() {
           <li
             className="list-group-item"
             key={city}
-            onClick={() =>
-              console.log(
-                "City number " + index + ": " + city + ", har blitt trykket på"
-              )
+            onClick={
+              handleClick
+              // Alternativ med ingen argument i onClick
+              // console.log(
+              //   "City number " + index + ": " + city + ", har blitt trykket på"
+              // )
+
+              // Alternativ med event som argument i onClick
+              // og der vi skriver koden rett inn her . OBS:( onclick må da se slik ut: onClick={(event) =>)
+              // console.log(event) // Man console logger info om eventen.
+
+              // Alternativ med event som argument, men der vi
+              // refererer til en metode (såkalt event handler)
+              // sånn at vi kan gjøre masse greier uten å ha masse
+              // kode her. Man har bare referansen til metoden,
+              // så kan man se inni den hva som skjer hvis man vil
             }
           >
             {city}
