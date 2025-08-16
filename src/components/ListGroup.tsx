@@ -1,7 +1,13 @@
 import { MouseEvent, useState } from "react";
 
-function ListGroup() {
-  let cities = ["London", "Berlin", "Paris", "Melbourne", "Buenos Aires"];
+interface ListGroupProps {
+  cities: string[];
+  heading: string;
+}
+
+// function ListGroup(props: ListGroupProps) { // her måtte vi ha skrevet props.cities og props.heading i koden under. Det slipper vi med å destrukturere props i stedet for.
+function ListGroup({cities, heading}: ListGroupProps) {
+  // let cities = ["London", "Berlin", "Paris", "Melbourne", "Buenos Aires"];
   // let selectedIndex = 0;
   // variabler i components (kun componentnen som kjenner den igjen. Kan bruke hooks under for å gjøre de mer tilgjengelige utenfor dette scopet)
   // pseudo kode for denne hooken (useState) er:
@@ -46,7 +52,7 @@ function ListGroup() {
   */
   return (
     <>
-      <h1>ListGroup</h1>
+      <h1>{heading}</h1>
       {/*Hvis jeg ikke trenger parametere */}
       {/* {message} */}
       {/* Hvis jeg tror jeg kan trenge parametere i fremtiden, bruk en funksjon heller */}
