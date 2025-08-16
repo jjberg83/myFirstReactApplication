@@ -1,7 +1,12 @@
-import { MouseEvent } from "react";
+import { MouseEvent, useState } from "react";
 
 function ListGroup() {
   let cities = ["London", "Berlin", "Paris", "Melbourne", "Buenos Aires"];
+  // let selectedIndex = 0;
+  // variabler i components (kun componentnen som kjenner den igjen. Kan bruke hooks under for å gjøre de mer tilgjengelige utenfor dette scopet)
+  // pseudo kode for denne hooken (useState) er:
+  // array [variabelMedStartVerdi, oppdaterVariabelFunksjon] = useState(StartVerdi)
+  let [selectedIndex, updateSelectedIndex] = useState(-1);
   // cities = [];
 
   // Her dupliserer vi mye kode, fordi vi må skrive inn h1 taggen på nytt
@@ -56,10 +61,11 @@ function ListGroup() {
       <ul className="list-group">
         {cities.map((city, index) => (
           <li
-            className="list-group-item"
+            // className="list-group-item" // Statiske måten å definere className (problem, alle blir aktive)
+            className= { index == selectedIndex ? "list-group-item active" : "list-group-item"} // Dynamisk måte. Kun den man trykker på blir aktiv
             key={city}
-            onClick={
-              handleClick
+            onClick={() => {updateSelectedIndex(index)}}
+              // handleClick}
               // Alternativ med ingen argument i onClick
               // console.log(
               //   "City number " + index + ": " + city + ", har blitt trykket på"
@@ -74,7 +80,7 @@ function ListGroup() {
               // sånn at vi kan gjøre masse greier uten å ha masse
               // kode her. Man har bare referansen til metoden,
               // så kan man se inni den hva som skjer hvis man vil
-            }
+          
           >
             {city}
           </li>
