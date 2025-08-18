@@ -3,10 +3,13 @@ import { MouseEvent, useState } from "react";
 interface ListGroupProps {
   cities: string[];
   heading: string;
+  // metoden under skal gi beskjed til ListGroup sin parent,
+  // altså App.tsx, om noe, her representert ved en string som argument
+  onSelectItem: (item: string) => void;
 }
 
 // function ListGroup(props: ListGroupProps) { // her måtte vi ha skrevet props.cities og props.heading i koden under. Det slipper vi med å destrukturere props i stedet for.
-function ListGroup({cities, heading}: ListGroupProps) {
+function ListGroup({ cities, heading, onSelectItem }: ListGroupProps) {
   // let cities = ["London", "Berlin", "Paris", "Melbourne", "Buenos Aires"];
   // let selectedIndex = 0;
   // variabler i components (kun componentnen som kjenner den igjen. Kan bruke hooks under for å gjøre de mer tilgjengelige utenfor dette scopet)
@@ -68,25 +71,31 @@ function ListGroup({cities, heading}: ListGroupProps) {
         {cities.map((city, index) => (
           <li
             // className="list-group-item" // Statiske måten å definere className (problem, alle blir aktive)
-            className= { index == selectedIndex ? "list-group-item active" : "list-group-item"} // Dynamisk måte. Kun den man trykker på blir aktiv
+            className={
+              index == selectedIndex
+                ? "list-group-item active"
+                : "list-group-item"
+            } // Dynamisk måte. Kun den man trykker på blir aktiv
             key={city}
-            onClick={() => {updateSelectedIndex(index)}}
-              // handleClick}
-              // Alternativ med ingen argument i onClick
-              // console.log(
-              //   "City number " + index + ": " + city + ", har blitt trykket på"
-              // )
+            onClick={() => {
+              updateSelectedIndex(index);
+              onSelectItem(city);
+            }}
+            // handleClick}
+            // Alternativ med ingen argument i onClick
+            // console.log(
+            //   "City number " + index + ": " + city + ", har blitt trykket på"
+            // )
 
-              // Alternativ med event som argument i onClick
-              // og der vi skriver koden rett inn her . OBS:( onclick må da se slik ut: onClick={(event) =>)
-              // console.log(event) // Man console logger info om eventen.
+            // Alternativ med event som argument i onClick
+            // og der vi skriver koden rett inn her . OBS:( onclick må da se slik ut: onClick={(event) =>)
+            // console.log(event) // Man console logger info om eventen.
 
-              // Alternativ med event som argument, men der vi
-              // refererer til en metode (såkalt event handler)
-              // sånn at vi kan gjøre masse greier uten å ha masse
-              // kode her. Man har bare referansen til metoden,
-              // så kan man se inni den hva som skjer hvis man vil
-          
+            // Alternativ med event som argument, men der vi
+            // refererer til en metode (såkalt event handler)
+            // sånn at vi kan gjøre masse greier uten å ha masse
+            // kode her. Man har bare referansen til metoden,
+            // så kan man se inni den hva som skjer hvis man vil
           >
             {city}
           </li>

@@ -7,6 +7,9 @@ import ListGroup from "./components/ListGroup";
 function App() {
   let byer = ["Stavanger", "Bergen", "Oslo", "Kristiansand", "Trondheim"];
   let overskrift = "Norske byer";
+  const handleSelectItem = (city: string) => {
+    console.log(`Beskjed fra ListGroup: ${city}`);
+  };
   /*
   return (
     // Div'en som henger igjen er fordi React klagde tidligere når vi hadde flere elementer her
@@ -23,7 +26,11 @@ function App() {
   // og skaper altså ikke nye elementer i DOM'en.
   return (
     <>
-      <ListGroup cities={byer} heading={overskrift} />
+      <ListGroup
+        cities={byer}
+        heading={overskrift}
+        onSelectItem={handleSelectItem}
+      />
     </>
   );
 }
