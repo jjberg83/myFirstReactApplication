@@ -1,7 +1,5 @@
-import Message from "./components/Message";
-import Paragraph from "./components/Paragraph";
-import JJBergParagraph from "./components/JJBergParagraph";
 import ListGroup from "./components/ListGroup";
+import Alert from "./components/Alert";
 //import { Fragment } from "react/jsx-runtime";
 
 function App() {
@@ -31,6 +29,9 @@ function App() {
         heading={overskrift}
         onSelectItem={handleSelectItem}
       />
+      <Alert>
+        Hello <span>world</span>!
+      </Alert>
     </>
   );
 }
