@@ -1,5 +1,7 @@
 import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
+import BootstrapButton from "./components/BootstrapButton";
+import MoshButton from "./components/MoshButton";
 //import { Fragment } from "react/jsx-runtime";
 
 function App() {
@@ -8,6 +10,8 @@ function App() {
   const handleSelectItem = (city: string) => {
     console.log(`Beskjed fra ListGroup: ${city}`);
   };
+
+  let knappeTekst = "Trykk meg!"
   /*
   return (
     // Div'en som henger igjen er fordi React klagde tidligere når vi hadde flere elementer her
@@ -32,6 +36,8 @@ function App() {
       <Alert>
         Hello <span>world</span>!
       </Alert>
+      <BootstrapButton buttonText={knappeTekst}/>
+      <MoshButton onClick={() => console.log(`Knappen er trykket påh!`) color="btn-secondary"}> Mosh er best </MoshButton>
     </>
   );
 }
