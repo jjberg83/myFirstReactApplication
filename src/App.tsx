@@ -37,7 +37,10 @@ function App() {
         Hello <span>world</span>!
       </Alert>
       <BootstrapButton buttonText={knappeTekst}/>
-      <MoshButton onClick={() => console.log(`Knappen er trykket påh!`) color="btn-secondary"}> Mosh er best </MoshButton>
+      {/* Knappen har en default verdi, så den blir btn-secondary hvis vi ikke spesifiserer noe */}
+      {/* <MoshButton onClick={() => console.log(`Knappen er trykket påh!`)}> Mosh er best </MoshButton> */}
+      {/* Spesifiserer vi noe derimot, får knappen denne fargen */}
+      <MoshButton onClick={() => console.log(`Knappen er trykket påh!`)} color="warning"> Mosh er best </MoshButton>
     </>
   );
 }
