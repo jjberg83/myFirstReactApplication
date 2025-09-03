@@ -1,7 +1,13 @@
-import ListGroup_5 from "./components/ListGroup_5";
+import ListGroup_6 from "./components/ListGroup_6";
 
 function App() {
-  return <ListGroup_5 />;
+  return (
+    <>
+      {/* Under har vi to instanser av samme komponent, kun for å vise at de har hver sin state (useState) */}
+      <ListGroup_6 />
+      <ListGroup_6 />;
+    </>
+  );
 }
 
 export default App;
