@@ -1,11 +1,18 @@
-import ListGroup_6 from "./components/ListGroup_6";
+import ListGroup_7 from "./components/ListGroup_7";
 
 function App() {
+  let klubber = [
+    "Viking",
+    "Bodø Glimt",
+    "Tromsø",
+    "Brann",
+    "Molde",
+    "Manchester United",
+  ];
+  let overskrift = "ListGroup_7";
   return (
     <>
-      {/* Under har vi to instanser av samme komponent, kun for å vise at de har hver sin state (useState) */}
-      <ListGroup_6 />
-      <ListGroup_6 />;
+      <ListGroup_7 elements={klubber} heading={overskrift} />;
     </>
   );
 }
