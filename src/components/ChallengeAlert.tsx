@@ -1,6 +1,11 @@
 import React, { ReactNode, useState } from "react";
 
-// Dette er challenge 2
+// Dette er min første løsning på challenge 2
+// Ulempen med den løsningen er at komponenten ikke er like gjenbrukbar.
+// Den gir nemlig ikke beskjed til parent component (App.tsx) om at elementene inni er trykket på.
+// Hadde den gjort det, kunne App.tsx bestemt hva som skulle skje. Skal noe annet skje nå enn at
+// setStateAlertBox påkalles, må man lage en helt ny komponent. Bedre å gjøre den generell, og da
+// er eneste kravet at man må følge signaturen.
 
 interface Props {
   onSelectedItem: () => void;

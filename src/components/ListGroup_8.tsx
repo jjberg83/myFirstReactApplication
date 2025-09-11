@@ -4,7 +4,7 @@
 // Vil man at noe annet skal skje, må man lage en duplikat komponent, der eneste forskjellen er at noe annet skjer
 // når du trykker på knappen. Vi ønsker heller at komponenten gir parent komponenten beskjed om at en knapp er
 // trykket på, og så skjer noe i parent komponenten. Da kan denne komponenten brukes om igjen og og igjen,
-// samme hvor mange til man ønsker skal skje når knappen blir trykket på.
+// samme hvor mange ting til man ønsker skal skje når knappen blir trykket på.
 
 import { useState } from "react";
 

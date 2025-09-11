@@ -1,23 +1,24 @@
 import React, { ReactNode } from "react";
 
-// Dette er challenge 1
+// Dette er challenge 2, men lærers løsning
+// Jeg lagde alt i én komponent. Han delte opp i to.
 
 interface Props {
   onSelectedItem: () => void;
   color?:
-    | "primary"
-    | "secondary"
-    | "success"
-    | "danger"
-    | "warning"
-    | "info"
-    | "light"
-    | "dark"
-    | "link"; // Legg merke til at color er optional. Den har en default verdi i Props, som er fallback hvis den ikke blir definert i app.
+  | "primary"
+  | "secondary"
+  | "success"
+  | "danger"
+  | "warning"
+  | "info"
+  | "light"
+  | "dark"
+  | "link"; // Legg merke til at color er optional. Den har en default verdi i Props, som er fallback hvis den ikke blir definert i app.
   children: ReactNode;
 }
 
-const BootstrapButton = ({
+const BootstrapButtonTeacher = ({
   onSelectedItem,
   color = "warning",
   children,
@@ -33,10 +34,10 @@ const BootstrapButton = ({
   );
 };
 
-export default BootstrapButton;
+export default BootstrapButtonTeacher;
 
 // Kode tilhørende App.tsx
-// import BootstrapButton from "./components/BoostrapButton";
+// import BootstrapButton from "./components/BoostrapButtonTeacher";
 
 // function App() {
 //   const handleOnSelectedItem = () => console.log("Knapp er trykket på");
@@ -51,4 +52,3 @@ export default BootstrapButton;
 // }
 
 // export default App;
-
