@@ -9,6 +9,7 @@ import React, { ReactNode, useState } from "react";
 
 interface Props {
   onSelectedItem: () => void;
+  onClosing: () => void;
   color?:
     | "primary"
     | "secondary"
@@ -24,6 +25,7 @@ interface Props {
 
 const ChallengeAlert = ({
   onSelectedItem,
+  onClosing,
   color = "warning",
   children,
 }: Props) => {
@@ -42,7 +44,10 @@ const ChallengeAlert = ({
             className="close"
             data-dismiss="alert"
             aria-label="Close"
-            onClick={() => setStateAlertBox(false)}
+            onClick={() => {
+              setStateAlertBox(false);
+              onClosing();
+            }}
           >
             <span aria-hidden="true">&times;</span>
           </button>
@@ -52,7 +57,10 @@ const ChallengeAlert = ({
       <button
         type="button"
         className={`btn btn-${color}`}
-        onClick={() => setStateAlertBox(true)}
+        onClick={() => {
+          setStateAlertBox(true); // Denne styrer state variabelen på toppen og er intern
+          onSelectedItem(); // Denne gir beskjed til App og implementeres derfra.
+        }}
       >
         {children}
       </button>
