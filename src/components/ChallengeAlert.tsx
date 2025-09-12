@@ -1,15 +1,16 @@
 import React, { ReactNode, useState } from "react";
 
-// Dette er min første løsning på challenge 2
-// Ulempen med den løsningen er at komponenten ikke er like gjenbrukbar.
-// Den gir nemlig ikke beskjed til parent component (App.tsx) om at elementene inni er trykket på.
-// Hadde den gjort det, kunne App.tsx bestemt hva som skulle skje. Skal noe annet skje nå enn at
-// setStateAlertBox påkalles, må man lage en helt ny komponent. Bedre å gjøre den generell, og da
-// er eneste kravet at man må følge signaturen.
+// Forbedring av koden fra Github Copilot, basert på mitt forslag. Jeg bruker
+// en superkomponent med alt inni, og styrer state variabelen fra App.tsx.
+// State variabelen legges inn som argument i Props (showAlert). Annen kul greie
+// med denne løsningen er at jeg gjør to ting i metodekallene, både console logger
+// og stiller state variabelen (i App.tsx).
+// Muligens den beste løsningen?
 
 interface Props {
   onSelectedItem: () => void;
   onClosing: () => void;
+  showAlert: boolean;
   color?:
     | "primary"
     | "secondary"
@@ -19,20 +20,20 @@ interface Props {
     | "info"
     | "light"
     | "dark"
-    | "link"; // Legg merke til at color er optional. Den har en default verdi i Props, som er fallback hvis den ikke blir definert i app.
+    | "link";
   children: ReactNode;
 }
 
 const ChallengeAlert = ({
   onSelectedItem,
   onClosing,
+  showAlert,
   color = "warning",
   children,
 }: Props) => {
-  const [stateAlertBox, setStateAlertBox] = useState(false);
   return (
     <>
-      {stateAlertBox && (
+      {showAlert && (
         <div
           className="alert alert-warning alert-dismissible fade show"
           role="alert"
@@ -45,7 +46,6 @@ const ChallengeAlert = ({
             data-dismiss="alert"
             aria-label="Close"
             onClick={() => {
-              setStateAlertBox(false);
               onClosing();
             }}
           >
@@ -58,8 +58,7 @@ const ChallengeAlert = ({
         type="button"
         className={`btn btn-${color}`}
         onClick={() => {
-          setStateAlertBox(true); // Denne styrer state variabelen på toppen og er intern
-          onSelectedItem(); // Denne gir beskjed til App og implementeres derfra.
+          onSelectedItem();
         }}
       >
         {children}
@@ -70,14 +69,29 @@ const ChallengeAlert = ({
 
 export default ChallengeAlert;
 
-// Kode tilhørende App.tsx
+// Kode i App.tsx
 // import ChallengeAlert from "./components/ChallengeAlert";
 
+// import React, { useState } from "react";
+
 // function App() {
-//   const handleOnSelectedItem = () => console.log("Knapp er trykket på");
+//   const [showAlert, setShowAlert] = useState(false);
+
+//   const handleOnSelectedItem = () => {
+//     setShowAlert(true);
+//     console.log("Jeg klarer å gi beskjed til toppen om at jeg åpner");
+//   };
+//   const handleOnClosing = () => {
+//     setShowAlert(false);
+//     console.log("Jeg klarer å gi beskjed til toppen om at jeg lukker");
+//   };
 //   return (
 //     <>
-//       <ChallengeAlert onSelectedItem={handleOnSelectedItem}>
+//       <ChallengeAlert
+//         onSelectedItem={handleOnSelectedItem}
+//         onClosing={handleOnClosing}
+//         showAlert={showAlert}
+//       >
 //         Vis meg alert
 //       </ChallengeAlert>
 //     </>
