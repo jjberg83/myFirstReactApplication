@@ -1,27 +1,30 @@
-import ChallengeAlert from "./components/ChallengeAlert";
+// Man må skrive hele pathen uten index file
+// import ListGroup_1 from "./components/StylingComponents/ListGroup_1/ListGroup_1"; 
 
-import React, { useState } from "react";
+// Med index file på plass holder det å referere til mappen, siden vi i index file sier hva index er. 
+// Instruktør navngir den som index.ts. Jeg må bruke index.TSX for at det skal fungere.
+import ListGroup_1 from "./components/StylingComponents/ListGroup_1"; 
 
 function App() {
-  const [showAlert, setShowAlert] = useState(false);
+  let klubber = [
+    "Viking",
+    "Bodø Glimt",
+    "Tromsø",
+    "Brann",
+    "Molde",
+    "Manchester United",
+  ];
+  let overskrift = "ListGroup_1";
 
-  const handleOnSelectedItem = () => {
-    setShowAlert(true);
-    console.log("Jeg klarer å gi beskjed til toppen om at jeg åpner");
-  };
-  const handleOnClosing = () => {
-    setShowAlert(false);
-    console.log("Jeg klarer å gi beskjed til toppen om at jeg lukker");
-  };
+  const handleSelectItem = (element: string) => console.log(element);
+
   return (
     <>
-      <ChallengeAlert
-        onSelectedItem={handleOnSelectedItem}
-        onClosing={handleOnClosing}
-        showAlert={showAlert}
-      >
-        Vis meg alert
-      </ChallengeAlert>
+      <ListGroup_1
+        elements={klubber}
+        heading={overskrift}
+        onSelectItem={handleSelectItem}
+      />
     </>
   );
 }
