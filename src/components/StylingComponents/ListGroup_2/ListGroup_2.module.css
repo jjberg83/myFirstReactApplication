@@ -1,0 +1,16 @@
+
+/* vi legger til .module i filnavnet for å få det til å bli en CSS module.
+CSS modules skal hjelpe til med å unngå CSS kollisjoner */
+h1 {
+    color:blue;
+}
+/* Navngir vi klassen slik må vi skrive {styles["list-group"]} i ListGroup_2.tsx filen 
+.list-group {
+    list-style: none;
+} */
+
+/* Navngir vi med camelCase i stedet for kan vi heller skrive {style.listGroup} i ListGroup_2.tsx filen, som er lettere */
+.listGroup {
+    list-style: none;
+    color: grey;
+}

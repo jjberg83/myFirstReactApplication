@@ -1,9 +1,6 @@
-// Man må skrive hele pathen uten index file
-// import ListGroup_1 from "./components/StylingComponents/ListGroup_1/ListGroup_1"; 
-
-// Med index file på plass holder det å referere til mappen, siden vi i index file sier hva index er. 
-// Instruktør navngir den som index.ts. Jeg må bruke index.TSX for at det skal fungere.
-import ListGroup_1 from "./components/StylingComponents/ListGroup_1"; 
+import ListGroup_2 from "./components/StylingComponents/ListGroup_2/ListGroup_2"; 
+// Her importerer vi stiler som krasjer med det vi har i ListGroup_2.css
+import "./App.css";
 
 function App() {
   let klubber = [
@@ -14,13 +11,13 @@ function App() {
     "Molde",
     "Manchester United",
   ];
-  let overskrift = "ListGroup_1";
+  let overskrift = "ListGroup_2";
 
   const handleSelectItem = (element: string) => console.log(element);
 
   return (
     <>
-      <ListGroup_1
+      <ListGroup_2
         elements={klubber}
         heading={overskrift}
         onSelectItem={handleSelectItem}
