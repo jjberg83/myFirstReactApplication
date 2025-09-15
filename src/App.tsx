@@ -1,5 +1,5 @@
-import ListGroup_2 from "./components/StylingComponents/ListGroup_2/ListGroup_2"; 
-// Her importerer vi stiler som krasjer med det vi har i ListGroup_2.css
+import ListGroup_3 from "./components/StylingComponents/ListGroup_3/ListGroup_3";
+// Her importerer vi stiler som krasjer med det vi har i ListGroup_3.css
 import "./App.css";
 
 function App() {
@@ -11,13 +11,13 @@ function App() {
     "Molde",
     "Manchester United",
   ];
-  let overskrift = "ListGroup_2";
+  let overskrift = "ListGroup_3";
 
   const handleSelectItem = (element: string) => console.log(element);
 
   return (
     <>
-      <ListGroup_2
+      <ListGroup_3
         elements={klubber}
         heading={overskrift}
         onSelectItem={handleSelectItem}

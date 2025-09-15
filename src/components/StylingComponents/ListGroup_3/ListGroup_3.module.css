@@ -8,7 +8,7 @@ ofte lastes etter denne CSS-filen. I utgangspunktet vinner App.css da, siden den
 som å stå nederst i denne filen). For å sikre mer spesifisitet, lager vi en klasse. Ved runtime tror jeg til og
 med at .myHeading får et unikt navn a-la .myHeading asdfw */
 .myHeading {
-    color: green;
+    color: yellow;
 }
 /* Navngir vi klassen slik må vi skrive {styles["list-group"]} i ListGroup_2.tsx filen 
 .list-group {
@@ -18,5 +18,5 @@ med at .myHeading får et unikt navn a-la .myHeading asdfw */
 /* Navngir vi med camelCase i stedet for kan vi heller skrive {style.listGroup} i ListGroup_2.tsx filen, som er lettere */
 .listGroup {
     list-style: none;
-    color: green;
+    color: yellow;
 }
