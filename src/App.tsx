@@ -1,4 +1,4 @@
-import ListGroup_3 from "./components/StylingComponents/ListGroup_3/ListGroup_3";
+import ListGroup_3 from "./components/StylingComponents/ListGroup_3";
 // Her importerer vi stiler som krasjer med det vi har i ListGroup_3.css
 import "./App.css";
 
